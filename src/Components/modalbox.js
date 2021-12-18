@@ -48,7 +48,8 @@ useEffect(() => {
     //     element.click();
     //   };
     const download = (e) => {
-
+        e?.preventDefault();
+        e?.stopPropagation();
         fetch(newVid, {
           method: "GET",
           headers: {}
@@ -111,7 +112,7 @@ useEffect(() => {
                         strokeWidth={30}
                         onProgress={percent => console.log(`${percent}% cleared`)}
                         onCompleted={() => {
-                            setcompleted(true);
+                          setcompleted(true);
                         }}
                         completedAt={20}
                             />
@@ -121,16 +122,18 @@ useEffect(() => {
                   <button
                     className={canvasWidth<=200?"bg-emerald-500 text-black bg-red-600 mr-2 rounded py-2 shadow-lg active:bg-emerald-600 font-bold uppercase text-sm px-3  ":"bg-emerald-500 text-black bg-red-600 mr-2 rounded py-2 shadow-lg active:bg-emerald-600 font-bold uppercase text-sm px-12"}
                     type="button"
-                    onClick={() => { setShowModal(false)
+                    onClick={() => { 
+                      setShowModal(false)
                       setruneffect(!runeffect)
-                        setcompleted(false)}}
+                      setcompleted(false)}}
                   >
                     Close
                   </button>
                   <button disabled={!completed}
                     className={!completed?"hidden":(canvasWidth<=200?"bg-emerald-500 text-black bg-green-500 rounded py-2 shadow-lg active:bg-emerald-600 font-bold uppercase text-sm px-1":"bg-emerald-500 text-black bg-green-500 rounded py-2 shadow-lg active:bg-emerald-600 font-bold uppercase text-sm px-8")}
                     type="button"
-                    onClick={(e) => download() }
+                    onMouseUp={(e) => download()}
+                    onTouchEnd={(e) => download()}
                   >
                     Download
                   </button>
