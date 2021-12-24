@@ -130,7 +130,7 @@ useEffect(() => {
                     Close
                   </button>
                   <button disabled={!completed}
-                    className={!completed?"hidden":(canvasWidth<=200?"bg-emerald-500 cursor-pointer text-black bg-green-500 rounded py-2 shadow-lg active:bg-emerald-600 font-bold uppercase text-sm px-1":"bg-emerald-500 text-black bg-green-500 rounded py-2 shadow-lg active:bg-emerald-600 font-bold uppercase text-sm px-8")}
+                    className={!completed?"hidden":(canvasWidth<=200?"bg-emerald-500 text-black bg-green-500 rounded py-2 shadow-lg active:bg-emerald-600 font-bold uppercase text-sm px-1":"bg-emerald-500 text-black bg-green-500 rounded py-2 shadow-lg active:bg-emerald-600 font-bold uppercase text-sm px-8")}
                     type="button"
                     onMouseUp={(e) => download()}
                     onTouchEnd={(e) => download()}
